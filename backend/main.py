@@ -27,13 +27,15 @@ except OSError:
 
 app = FastAPI(title="Smart Text Analyzer API", version="1.0.0")
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://smart-text-analyzer-frontend.onrender.com"
+        "https://smart-text-analyzer-frontend.onrender.com"  # ← your EXACT frontend URL
     ],
-    allow_credentials=True,
+    allow_credentials=False,   # keep False for now
     allow_methods=["*"],
     allow_headers=["*"],
 )
