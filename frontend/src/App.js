@@ -8,7 +8,7 @@ import TfidfSection from "./components/TfidfSection";
 import NerSection from "./components/NerSection";
 import WordnetSection from "./components/WordnetSection";
 
-const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:8000";
+const API_BASE = "https://smart-text-analyzer-x9jm.onrender.com";
 
 const SAMPLE_TEXT =
   "Apple Inc. was founded by Steve Jobs and Steve Wozniak in Cupertino, California in 1976. " +
