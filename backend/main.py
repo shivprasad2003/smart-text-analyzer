@@ -27,13 +27,20 @@ except OSError:
 
 app = FastAPI(title="Smart Text Analyzer API", version="1.0.0")
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[
+        "http://localhost:3000",                      # local dev
+        "https://your-frontend-name.vercel.app",      # production frontend
+        "*"                                           # or allow all during testing
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 lemmatizer = WordNetLemmatizer()
 STOP_WORDS = set(stopwords.words("english"))
